@@ -1,4 +1,4 @@
 node_modules
 tmp
 .env
-secret.ts
+src/zSecret.ts
