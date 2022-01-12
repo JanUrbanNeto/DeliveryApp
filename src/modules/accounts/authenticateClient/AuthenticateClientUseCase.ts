@@ -1,7 +1,7 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { prisma } from "../../../database/prismaClient"
-import { SECRET_TOKEN } from "../../../zSecret";
+import { SECRET_TOKEN_CLIENT } from "../../../zSecret";
 
 interface IAuthenticateClient {
    username: string;
@@ -26,7 +26,7 @@ export class AuthenticateClientUseCase {
          throw new Error("invalid username or password!")
       }
 
-      const token = await sign({ username }, SECRET_TOKEN, {
+      const token = await sign({ username }, SECRET_TOKEN_CLIENT, {
          subject: client.id,
          expiresIn: "100d"
       })
