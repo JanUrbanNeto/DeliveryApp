@@ -1,13 +1,13 @@
-import { prisma } from "../../../../database/prismaClient";
+import { Request, Response } from "express";
+import { ListDeliveriesClientUseCase } from "./listDeliveriesClientUseCase";
 
-export class ListDeliveriesClient {
-   async execute(id_client: string) {
-      const deliveries = await prisma.deliveries.findMany({
-         where: {
-            id_client
-         }
-      })
+export class ListDeliveriesClientController {
+   async handle(request: Request, response: Response) {
+      const { id_client } = request
 
-      return deliveries;
+      const listDeliveriesClientUseCase = new ListDeliveriesClientUseCase()
+      const deliveries = await listDeliveriesClientUseCase.execute(id_client)
+
+      return response.json(deliveries)
    }
 }
