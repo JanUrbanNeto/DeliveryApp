@@ -25,7 +25,7 @@ const addDeliverymanController = new AddDeliverymancontroller()
 
 routes.post("/client", createClientController.handle)
 routes.post("/client/authenticate", authenticateClientController.handle)
-routes.get("/client/listDeliveries", ensureAuthenticateClient, listDeliveriesClientController.handle)
+routes.get("/client/deliveries", ensureAuthenticateClient, listDeliveriesClientController.handle)
 
 routes.post("/deliveryman", createDeliverymanController.handle)
 routes.post("/deliveryman/authenticate", authenticateDeliverymanController.handle)
