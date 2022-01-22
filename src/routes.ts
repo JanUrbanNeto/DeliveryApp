@@ -8,6 +8,7 @@ import { ListDeliveriesClientController } from "./modules/clients/useCases/listD
 import { AddDeliverymancontroller } from "./modules/deliveries/useCases/AddDeliverymanController";
 import { CreateDeliveryController } from "./modules/deliveries/useCases/CreateDeliveryController";
 import { ListDeliveriesController } from "./modules/deliveries/useCases/ListDeliveriesController";
+import { UpdateEndDateController } from "./modules/deliveries/useCases/UpdateEndDateController";
 import { CreateDeliverymanController } from "./modules/deliverymen/useCases/CreateDeliverymanController";
 import { ListDeliveriesDeliverymanController } from "./modules/deliverymen/useCases/ListDeliveriesDeliverymanController";
 
@@ -24,6 +25,7 @@ const listDeliveriesDeliverymanController = new ListDeliveriesDeliverymanControl
 const createDeliveryController = new CreateDeliveryController()
 const listDeliveriesController = new ListDeliveriesController()
 const addDeliverymanController = new AddDeliverymancontroller()
+const updateEndDateController = new UpdateEndDateController()
 
 routes.post("/client", createClientController.handle)
 routes.post("/client/authenticate", authenticateClientController.handle)
@@ -36,5 +38,7 @@ routes.get("/deliveryman/deliveries", ensureAuthenticateDeliveryman, listDeliver
 routes.post("/delivery", ensureAuthenticateClient, createDeliveryController.handle)
 routes.get("/delivery", ensureAuthenticateDeliveryman, listDeliveriesController.handle)
 routes.put("/delivery/addDeliveryman/:id", ensureAuthenticateDeliveryman, addDeliverymanController.handle)
+routes.put("/delivery/updateEndDate/:id", ensureAuthenticateDeliveryman, updateEndDateController.handle)
+
 
 export { routes }

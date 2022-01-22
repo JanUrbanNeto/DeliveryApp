@@ -8,6 +8,8 @@ export class AddDeliverymancontroller {
 
       const addDeliverymanUseCase = new AddDeliverymanUseCase()
 
+      console.log("delivery: " + id_delivery + "\nDeliveryman: " + id_deliveryman)
+
       const delivery = await addDeliverymanUseCase.execute({
          id_deliveryman,
          id_delivery
