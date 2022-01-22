@@ -8,8 +8,6 @@ export class UpdateEndDateController {
 
       const updateEndDateUseCase = new UpdateEndDateUseCase()
 
-      console.log("delivery: " + id_delivery + "\nDeliveryman: " + id_deliveryman)
-
       const result = await updateEndDateUseCase.execute({
          id_delivery,
          id_deliveryman
